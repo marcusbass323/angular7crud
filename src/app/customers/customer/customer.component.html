@@ -1,0 +1,29 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+<input type="hidden" name="CustomerID" #id="ngModel" [(ngModel)]="service.formData.id" >
+  <div class="form-group">
+    <label>Email</label>
+    <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" required>
+    <div class="validation-error" *ngIf="email.invald && email.touched" >This field is required.</div>
+  </div>
+
+  <div class="form-group">
+    <label>First Name</label>
+    <input name="first_name" #first_name="ngModel" [(ngModel)]="service.formData.first_name" class="form-control" required>
+    <div class="validation-error" *ngIf="first_name.invald && first_name.touched" >This field is required.</div>
+
+  </div>
+
+  <div class="form-group">  
+    <label>Last Name</label>
+    <input name="last_name" #last_name="ngModel" [(ngModel)]="service.formData.last_name" class="form-control" required>
+    <div class="validation-error" *ngIf="last_name.invald && last_name.touched" >This field is required.</div>
+
+  </div>
+
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">
+      Add Customer
+    </button>
+  </div>
+  
+</form>
